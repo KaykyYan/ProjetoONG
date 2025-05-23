@@ -66,6 +66,7 @@ Não é necessário nenhum servidor web ou dependências complexas para executar
 * JavaScript (ES6+)
 * `localStorage` do navegador para persistência de dados.
 * API ViaCEP (consulta de CEP para preenchimento de endereço).
+* API de Clima (para exibição de informações meteorológicas relacionadas ao endereço ou CEP do voluntário).
 * `source.unsplash.com` (para exibição de fotos de perfil aleatórias).
 
 ## Observações Importantes
