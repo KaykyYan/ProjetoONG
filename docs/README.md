@@ -5,7 +5,7 @@ Este é um projeto frontend simples para um sistema de gerenciamento de voluntá
 ## Funcionalidades Principais
 
 1.  **Cadastro de Usuário:**
-    * Acesse através do link "Cadastre-se" na tela de Login (`login.html`) ou abrindo `cadastro.html` diretamente.
+    * Acesse através do link "Cadastre-se" na tela de Login (`index.html`) ou abrindo `cadastro.html` diretamente.
     * Campos: Nome, Email, CEP (com busca automática de endereço usando ViaCEP), Senha e Confirmação de Senha.
     * As informações dos usuários são salvas no `localStorage`.
 
@@ -21,7 +21,7 @@ Este é um projeto frontend simples para um sistema de gerenciamento de voluntá
     * **Menu de Navegação:**
         * Cadastro de Voluntário
         * Lista de Voluntários
-        * Sair (retorna para `login.html`)
+        * Sair (retorna para `index.html`)
     * **Redirecionamento por Inatividade:** Se o usuário permanecer inativo por 5 minutos em qualquer tela da área administrativa, ele será automaticamente desconectado e redirecionado para a tela de login.
 
 4.  **Cadastro de Voluntário (`cadastro_voluntario.html`):**
@@ -45,13 +45,13 @@ Este é um projeto frontend simples para um sistema de gerenciamento de voluntá
 ## Como Executar o Projeto
 
 1.  Clone este repositório ou baixe todos os arquivos (`.html`, `style.css`, `script.js`) para uma mesma pasta no seu computador.
-2.  Abra o arquivo `login.html` (ou `cadastro.html` se for o primeiro acesso) no seu navegador web preferido (Google Chrome, Firefox, Edge, etc.).
+2.  Abra o arquivo `index.html` (ou `cadastro.html` se for o primeiro acesso) no seu navegador web preferido (Google Chrome, Firefox, Edge, etc.).
 
 Não é necessário nenhum servidor web ou dependências complexas para executar este projeto, pois ele é puramente frontend.
 
 ## Estrutura dos Arquivos Principais
 
-* `login.html`: Tela de login do usuário.
+* `index.html`: Tela de login do usuário.
 * `cadastro.html`: Tela de cadastro de novo usuário.
 * `admin.html`: Página principal da área administrativa (após login).
 * `cadastro_voluntario.html`: Formulário para cadastrar novos voluntários.
