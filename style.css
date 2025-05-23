@@ -1,0 +1,649 @@
+/* style.css */
+
+/* Reset básico e configurações globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    height: 100%; /* Garante que o elemento HTML ocupe toda a altura */
+}
+
+body {
+    background-color: #f4f7f6; /* Cor de fundo padrão */
+    min-height: 100%; /* Garante que o body ocupe no mínimo toda a altura do HTML */
+    color: #333;
+    line-height: 1.6;
+    /* display:flex e padding foram removidos daqui para serem aplicados especificamente */
+}
+
+/* Estilos APENAS para o body das páginas de formulário (login, cadastro de usuário) */
+body.form-page-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Padding ao redor do container do formulário */
+}
+
+/* Container dos formulários (login/cadastro de usuário) */
+.container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+/* Estilos comuns de formulário de usuário (h1, label, input, etc.) */
+.container h1, body.form-page-body h1 {
+    color: #2a7f62;
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+/* Para a div dentro do form de login e para os forms de cadastro/login diretamente */
+form#loginForm > div,
+form#cadastroForm,
+form#loginForm { /* Removido duplicidade de form#loginForm */
+    display: flex;
+    flex-direction: column;
+}
+
+label { /* Estilo geral de label, pode ser usado por .form-group também */
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.95em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] { /* Inputs dos formulários de usuário */
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 18px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
+    border-color: #2a7f62;
+    box-shadow: 0 0 0 3px rgba(42, 127, 98, 0.2);
+    outline: none;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+input[type="number"]::placeholder {
+    color: #aaa;
+}
+
+input[readonly] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+button[type="submit"] { /* Botão de submit dos formulários de usuário */
+    background-color: #2a7f62;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #236851;
+    transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+.container p, body.form-page-body p {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.container p a, body.form-page-body p a {
+    color: #2a7f62;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.container p a:hover, body.form-page-body p a:hover {
+    text-decoration: underline;
+}
+
+.message { /* Mensagens de feedback (usado por todos os formulários) */
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    text-align: center;
+    display: none; /* Mostrado via JS */
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.message.info { /* Para mensagens informativas, como "Buscando CEP..." */
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+
+/* --- Estilos da Área Administrativa (admin.html, cadastro_voluntario.html, lista_voluntarios.html) --- */
+.admin-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.admin-header {
+    background-color: #2a7f62;
+    color: white;
+    padding: 15px 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 100%;
+    z-index: 1000;
+    flex-shrink: 0;
+}
+
+.admin-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.admin-header .logo-admin h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: white;
+}
+.admin-header .logo-admin h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-toggle-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8em;
+    cursor: pointer;
+    display: none;
+}
+
+.admin-nav {
+    background-color: #ffffff;
+    padding: 0;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.admin-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.admin-nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #2a7f62;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, border-bottom-color 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.admin-nav ul li a i {
+    margin-right: 8px;
+}
+
+.admin-nav ul li a:hover,
+.admin-nav ul li a.active-link { /* Classe para link ativo */
+    background-color: #e9f3f0;
+    color: #1e5845;
+    border-bottom-color: #2a7f62;
+}
+
+.admin-main-content {
+    flex-grow: 1;
+    padding: 30px 20px;
+    background-color: #f4f7f6;
+}
+.weather-widget {
+    background-color: #eef5f9; /* Um azul bem claro e suave */
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin: 10px 0 15px 0; /* Espaçamento antes do campo de endereço */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9em;
+    color: #334E68; /* Cor do texto mais escura para contraste */
+    border: 1px solid #c9dcec;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.weather-widget img#weatherIcon {
+    width: 40px; /* Tamanho do ícone */
+    height: 40px;
+}
+
+.weather-widget #weatherTemp {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.weather-widget #weatherCity {
+    font-weight: 500;
+}
+
+.weather-widget #weatherDescription {
+    font-size: 0.85em;
+    color: #587085;
+    font-style: italic;
+    margin-left: auto; /* Empurra para a direita, se houver espaço */
+}
+.admin-content-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.admin-content-container h2 { /* Título dentro do conteúdo principal da área admin */
+    color: #2a7f62;
+    margin-bottom: 20px;
+    font-size: 1.7em;
+}
+
+.admin-content-container p {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.admin-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #f4f7f6;
+    font-size: 0.9em;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+/* NOVOS ESTILOS: Formulários dentro da Área Admin (ex: cadastro_voluntario.html) */
+.styled-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label { /* Reutiliza o estilo de label geral, mas pode ser sobrescrito se necessário */
+    margin-bottom: 5px; /* Espaçamento específico do form-group */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"] { /* Inputs específicos para .styled-form */
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.95em;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus { /* Foco para inputs do .styled-form */
+    border-color: #2a7f62;
+    box-shadow: 0 0 0 2px rgba(42, 127, 98, 0.2);
+    outline: none;
+}
+
+.form-group small { /* Texto pequeno de ajuda */
+    font-size: 0.8em;
+    color: #777;
+    margin-top: 3px;
+}
+
+.btn-submit-form { /* Botão de submit para .styled-form */
+    background-color: #2a7f62;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start; /* Alinha o botão à esquerda */
+    margin-top: 10px;
+}
+
+.btn-submit-form:hover {
+    background-color: #236851;
+}
+
+/* NOVOS ESTILOS: Cards de Voluntários (para lista_voluntarios.html) */
+.voluntarios-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Grid responsivo */
+    gap: 20px;
+    margin-top: 20px;
+}
+.voluntarios-container .empty-message { /* Mensagem de nenhum voluntário */
+    grid-column: 1 / -1; /* Ocupa todas as colunas do grid */
+    text-align: center;
+    color: #777;
+    padding: 20px;
+    font-style: italic;
+}
+
+
+.voluntario-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease;
+}
+
+.voluntario-card:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+.voluntario-card img.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 15px auto; /* Centraliza a imagem */
+    background-color: #f0f0f0; /* Cor de fundo caso a imagem demore a carregar */
+    border: 2px solid #eee; /* Pequena borda na foto */
+}
+
+.voluntario-card h3 { /* Nome do voluntário no card */
+    color: #2a7f62;
+    margin-bottom: 8px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.voluntario-card p { /* Informações do voluntário no card */
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 8px;
+    line-height: 1.5;
+    word-break: break-word; /* Quebra palavras longas para não estourar o card */
+}
+
+.voluntario-card p strong {
+    color: #333;
+}
+
+.voluntario-card .btn-excluir {
+    background-color: #d9534f; /* Vermelho para exclusão */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    margin-top: auto; /* Empurra o botão para o final do card */
+    transition: background-color 0.3s ease;
+    align-self: center; /* Centraliza o botão */
+}
+.voluntario-card .btn-excluir i { margin-right: 5px; }
+
+
+.voluntario-card .btn-excluir:hover {
+    background-color: #c9302c;
+}
+
+/* NOVOS ESTILOS: Filtros e Botão Limpar Tudo (lista_voluntarios.html) */
+.filtros-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+    align-items: center;
+}
+
+.filtros-container input[type="text"] { /* Input de filtro */
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.95em;
+    flex-grow: 1;
+    min-width: 200px;
+}
+.filtros-container input[type="text"]:focus { /* Foco no input de filtro */
+     border-color: #2a7f62;
+    box-shadow: 0 0 0 2px rgba(42, 127, 98, 0.2);
+    outline: none;
+}
+
+
+.btn-limpar-tudo {
+    background-color: #f0ad4e; /* Laranja para "Limpar Tudo" */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.95em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.btn-limpar-tudo i { margin-right: 5px; }
+
+.btn-limpar-tudo:hover {
+    background-color: #ec971f;
+}
+
+
+/* --- Media Queries para Responsividade --- */
+
+/* Telas Médias (Tablets em modo retrato e alguns celulares grandes em paisagem) */
+@media (max-width: 768px) {
+    /* Ajustes para .container (formulários de usuário) */
+    body.form-page-body .container {
+        padding: 25px 30px;
+        margin: 20px;
+    }
+    body.form-page-body .container h1 {
+         font-size: 1.8em;
+    }
+    body.form-page-body input[type="text"],
+    body.form-page-body input[type="email"],
+    body.form-page-body input[type="password"],
+    body.form-page-body input[type="number"] {
+        padding: 11px 14px;
+        font-size: 0.95em;
+    }
+    body.form-page-body button[type="submit"] {
+        padding: 11px 18px;
+        font-size: 1.05em;
+    }
+
+    /* Ajustes para admin page */
+    .admin-header .logo-admin h1 {
+        font-size: 1.5em;
+    }
+    .menu-toggle-button {
+        display: block;
+    }
+    .admin-nav {
+        position: absolute;
+        top: 65px; /* Ajuste conforme a altura do seu header */
+        left: 0;
+        right: 0;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        z-index: 999;
+    }
+    .admin-nav.active {
+        max-height: 500px;
+        border-bottom: 1px solid #ddd;
+    }
+    .admin-nav ul {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .admin-nav ul li a {
+        padding: 15px 25px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .admin-nav ul li:last-child a {
+        border-bottom: none;
+    }
+    .admin-nav ul li a:hover,
+    .admin-nav ul li a.active-link {
+        border-bottom-color: #f0f0f0; /* No mobile, mantém a borda divisória */
+    }
+     .admin-nav ul li:last-child a.active-link {
+        border-bottom-color: transparent;
+    }
+    .admin-main-content {
+        padding: 20px 15px; /* Padding ajustado para telas menores */
+    }
+    .admin-content-container {
+        padding: 20px;
+    }
+    .admin-content-container h2 {
+        font-size: 1.5em;
+    }
+
+    /* Ajustes para styled-form em telas menores */
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+        font-size: 0.9em;
+    }
+    .btn-submit-form {
+        font-size: 0.95em;
+        padding: 10px 15px;
+    }
+
+    /* Ajustes para filtros em telas menores */
+    .filtros-container {
+        flex-direction: column; /* Empilha o filtro e o botão */
+        align-items: stretch; /* Fazem ocupar a largura */
+    }
+    .filtros-container input[type="text"] {
+        min-width: 0; /* Remove min-width para permitir encolhimento */
+    }
+}
+
+/* Telas Pequenas (Smartphones em modo retrato) */
+@media (max-width: 480px) {
+    /* Ajustes para .container (formulários de usuário) */
+    body.form-page-body {
+        padding: 10px;
+    }
+     body.form-page-body .container {
+        padding: 20px 15px;
+        margin: 10px auto; /* Margem menor */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    body.form-page-body .container h1 {
+        font-size: 1.6em;
+    }
+    body.form-page-body label {
+        font-size: 0.9em;
+    }
+    /* ... outros ajustes de formulário de usuário ... */
+
+
+    /* Ajustes para admin page */
+    .admin-header {
+        padding: 10px 15px;
+    }
+    .admin-header .logo-admin h1 {
+        font-size: 1.3em;
+    }
+    .menu-toggle-button {
+        font-size: 1.6em;
+    }
+    .admin-nav { /* Ajuste da posição do menu mobile se a altura do header mudar */
+        top: 54px; /* Exemplo: se header tem (10+10 padding + altura da fonte) ~54px */
+    }
+    .admin-main-content {
+        padding: 15px 10px;
+    }
+    .admin-content-container {
+        padding: 15px;
+    }
+    .admin-content-container h2 {
+        font-size: 1.4em;
+    }
+
+    /* Cards de voluntário em uma coluna */
+    .voluntarios-container {
+        grid-template-columns: 1fr; /* Uma coluna */
+        gap: 15px;
+    }
+     .voluntario-card img.profile-pic {
+        width: 80px;
+        height: 80px;
+    }
+    .voluntario-card h3 {
+        font-size: 1.1em;
+    }
+    .voluntario-card p {
+        font-size: 0.85em;
+    }
+}

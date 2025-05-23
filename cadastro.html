@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cadastro - ONG</title>
+</head>
+<body class="form-page-body">
+    <div class="container">
+        <h1>Cadastre-se</h1>
+        <form id="cadastroForm">
+            <label for="txtNome">Nome:</label>
+            <input type="text" id="txtNome" placeholder="Digite seu nome completo" required>
+
+            <label for="txtEmailCadastro">Email:</label>
+            <input type="email" id="txtEmailCadastro" placeholder="Digite seu e-mail" required>
+
+            <label for="txtCEP">CEP:</label>
+            <input type="text" id="txtCEP" placeholder="Digite seu CEP" maxlength="9" required> <div id="weatherWidget" class="weather-widget" style="display: none;">
+                <img id="weatherIcon" src="" alt="Ícone do Clima">
+                <span id="weatherTemp"></span>
+                <span id="weatherCity"></span>
+                <small id="weatherDescription"></small>
+            </div>
+
+            <label for="txtEndereco">Endereço:</label>
+            <input type="text" id="txtEndereco" placeholder="Será preenchido automaticamente" readonly>
+
+            <label for="txtSenhaCadastro">Senha:</label>
+            <input type="password" id="txtSenhaCadastro" placeholder="Crie uma senha forte" required minlength="6">
+
+            <label for="txtConfirmarSenha">Confirmar Senha:</label>
+            <input type="password" id="txtConfirmarSenha" placeholder="Confirme sua senha" required>
+
+            <p>Já tem uma conta? <a href="index.html">Login</a></p> <button type="submit">Confirmar</button>
+            <p id="cadastroMessage" class="message"></p>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

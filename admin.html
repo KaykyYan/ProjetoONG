@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Painel da ONG - Bem-vindo(a)!!!</title>
+</head>
+<body>
+    <div class="admin-wrapper">
+        <header class="admin-header">
+            <div class="admin-header-container">
+                <div class="logo-admin">
+                    <h1><a href="admin.html">Portal da ONG</a></h1>
+                </div>
+                <button id="menuToggle" class="menu-toggle-button">
+                    <i class="fas fa-bars"></i> </button>
+            </div>
+        </header>
+
+        <nav class="admin-nav" id="adminNav">
+            <ul>
+                <li><a href="cadastro_voluntario.html"><i class="fas fa-user-plus"></i> Cadastro de Voluntário</a></li>
+                <li><a href="lista_voluntarios.html"><i class="fas fa-list-ul"></i> Lista de Voluntários</a></li>
+                <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li> </ul>
+        </nav>
+
+        <main class="admin-main-content">
+            <div class="admin-content-container">
+                <h2>Seja bem-vindo(a) à área administrativa!</h2>
+                <p>Aqui você pode gerenciar as informações e atividades da nossa ONG.</p>
+                <p>Use o menu ao lado (ou acima em telas menores) para navegar pelas seções.</p>
+                </div>
+        </main>
+
+        <footer class="admin-footer">
+            <p>&copy; <span id="currentYear"></span> Nome da Sua ONG. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script> </body>
+</html>

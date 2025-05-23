@@ -1,0 +1,24 @@
+1. Como foi feita a integração com a API do ViaCep?
+
+	Utilizamos o JavaScript para capturar o CEP digitado pelo usuário, e com o fetch usamos a url do viaCep e concatenamos com o cep, fazendo com que ao ser digitado o cep  campo de endereço se completava automaticamente,para o tratamento de erro try-catch.
+
+2. Como a imagem aleatória foi gerada?
+
+3. Como você utilizou o LocalStorge?
+	Criamos um array para armazenar todos os usuário cadastrados e seus dados. Com os dados todos armazenamos mostramos eles nos cards onde contém a informação de cada usuário.
+
+4. Como você organizou os cards na tela?
+	Os cards foram divididos em blocos, um ao lado do outro cada um contendo a informação de um usuário.
+
+5. Como foi implementado o sistema de login e controle de acesso?
+	No login garantimos que só é possível completar se o email e senha for existente no localStotge, caso contrário não é possível acessa a parte de admin.
+	No cadastro garantimos que ele só seja completado quando todos os campos forém preenchidos de maneira correta.
+
+6. Como foi feito o controle de e-mail duplicado?
+	Criamos uma variavel user que vê os email cadastrados e compara com o email escrito na página de cadastro, caso o email já seja existente o programa não permite que o usuário se cadastre.
+
+7. Como foi implementado o redirecionamento após 5 minutos de inatividade?
+	Criamos uma constante que verifica cada interação qdo usuário com a página, em uma constante é armazenado o tempo máximo de inatividade(5), quando o tempo é atingido chamamos uma função que redireciona para a tela login.
+
+8. O que você faria diferente se fosse um projeto real?
+	Utilizaria framework, montaria uma estrutura no back-end e faria uma interface mais interativa e simplificada.

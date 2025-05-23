@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Lista de Voluntários - Portal da ONG</title>
+</head>
+<body>
+    <div class="admin-wrapper">
+        <header class="admin-header">
+            <div class="admin-header-container">
+                <div class="logo-admin">
+                    <h1><a href="admin.html">Portal da ONG</a></h1>
+                </div>
+                <button id="menuToggle" class="menu-toggle-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </header>
+
+        <nav class="admin-nav" id="adminNav">
+            <ul>
+                <li><a href="cadastro_voluntario.html"><i class="fas fa-user-plus"></i> Cadastro de Voluntário</a></li>
+                <li><a href="lista_voluntarios.html" class="active-link"><i class="fas fa-list-ul"></i> Lista de Voluntários</a></li>
+                <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+            </ul>
+        </nav>
+
+        <main class="admin-main-content">
+            <div class="admin-content-container">
+                <h2>Lista de Voluntários Cadastrados</h2>
+                
+                <div class="filtros-container">
+                    <input type="text" id="filtroNomeVoluntario" placeholder="Filtrar por nome...">
+                    <button id="btnLimparTodosVoluntarios" class="btn-limpar-tudo">
+                        <i class="fas fa-trash-alt"></i> Limpar Tudo
+                    </button>
+                </div>
+                <p id="listaVoluntariosMessage" class="message"></p>
+                <div id="voluntariosContainer" class="voluntarios-container">
+                    <p class="empty-message" style="display: none;">Nenhum voluntário encontrado.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="admin-footer">
+            <p>&copy; <span id="currentYear"></span> Nome da Sua ONG. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

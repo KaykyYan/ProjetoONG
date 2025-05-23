@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Cadastro de Voluntário - Portal da ONG</title>
+</head>
+<body>
+    <div class="admin-wrapper">
+        <header class="admin-header">
+            <div class="admin-header-container">
+                <div class="logo-admin">
+                    <h1><a href="admin.html">Portal da ONG</a></h1>
+                </div>
+                <button id="menuToggle" class="menu-toggle-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </header>
+
+        <nav class="admin-nav" id="adminNav">
+            <ul>
+                <li><a href="cadastro_voluntario.html" class="active-link"><i class="fas fa-user-plus"></i> Cadastro de Voluntário</a></li>
+                <li><a href="lista_voluntarios.html"><i class="fas fa-list-ul"></i> Lista de Voluntários</a></li>
+                <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+            </ul>
+        </nav>
+
+        <main class="admin-main-content">
+            <div class="admin-content-container">
+                <h2>Cadastro de Novo Voluntário</h2>
+                <form id="formCadastroVoluntario" class="styled-form">
+                    <div class="form-group">
+                        <label for="voluntarioNome">Nome Completo:</label>
+                        <input type="text" id="voluntarioNome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="voluntarioEmail">Email:</label>
+                        <input type="email" id="voluntarioEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="voluntarioCEP">CEP:</label>
+                        <input type="text" id="voluntarioCEP" maxlength="9" placeholder="Ex: 00000-000" required>
+                         <small>Apenas números. O endereço será preenchido ou validado.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="voluntarioEndereco">Endereço Completo:</label>
+                        <input type="text" id="voluntarioEndereco" placeholder="Rua, Número, Bairro, Cidade - UF" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="voluntarioComplemento">Complemento (opcional):</label>
+                        <input type="text" id="voluntarioComplemento" placeholder="Apto, Bloco, etc.">
+                    </div>
+
+                    <button type="submit" class="btn-submit-form">Cadastrar Voluntário</button>
+                    <p id="cadastroVoluntarioMessage" class="message"></p>
+                </form>
+            </div>
+        </main>
+
+        <footer class="admin-footer">
+            <p>&copy; <span id="currentYear"></span> Nome da Sua ONG. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
